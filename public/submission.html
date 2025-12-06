@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant Portal - ContestRank Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🤖 ContestRank Pro</h1>
+    </header>
+
+    <main>
+        <h2>Participant Result Submission</h2>
+        
+        <div id="verificationArea">
+            <h3>Verify Submission Code</h3>
+            <form id="codeForm">
+                <label for="submissionCode">Enter Secret Submission Code:</label>
+                <input type="text" id="submissionCode" name="submissionCode" required> 
+                <button type="submit">Verify Code & Start Submission</button>
+            </form>
+        </div>
+
+        <div id="submissionArea" class="hidden">
+            <h3>Submission for: <span id="contestTitle"></span></h3>
+            <p>Please upload the required file containing the contest results or scores.</p>
+            
+            <form id="fileForm" enctype="multipart/form-data">
+                <label for="resultFile">Upload Results File (plain text with score):</label>
+                <input type="file" id="resultFile" name="resultFile" required>
+                
+                <label for="schoolName">School/Team Name:</label>
+                <input type="text" id="schoolName" name="schoolName" required>
+                
+                <button type="submit">Submit Results</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ContestRank Pro</p>
+    </footer>
+
+    <script src="submission.js"></script> 
+</body>
+</html>
+

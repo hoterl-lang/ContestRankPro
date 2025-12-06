@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contest Rankings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🏆 ContestRank Pro Rankings</h1>
+    </header>
+
+    <main>
+        <div id="rankings-input">
+            <h2>View Final Rankings</h2>
+            <form id="rankingForm">
+                <label for="contestCodeInput">Enter Contest Code to View Rankings:</label>
+                <input type="text" id="contestCodeInput" required>
+                <button type="submit">View Rankings</button>
+            </form>
+        </div>
+
+        <div id="rankings-output" class="hidden">
+            <h2 id="rankingContestName"></h2>
+            
+            <table id="rankingTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>School/Team Name</th>
+                        <th>Total Score</th>
+                    </tr>
+                </thead>
+                <tbody id="rankingTableBody">
+                    </tbody>
+            </table>
+            <p id="noResults" class="hidden">No results found for this contest yet.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ContestRank Pro</p>
+    </footer>
+
+    <script src="rankings.js"></script>
+</body>
+</html>
+

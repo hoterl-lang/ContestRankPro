@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host Portal - ContestRank Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🤖 AI-Assisted Contest Setup</h1>
+    </header>
+
+    <main>
+        
+        <div id="setupFormArea">
+            <h2>Describe your contest:</h2>
+            <form id="setupForm">
+                <textarea id="contestDesc" rows="6" required placeholder="Example: High school level, covering core subjects like Mathematics, English, Kiswahili, Biology, Chemistry, Physics, and History. Format: Timed papers with multiple-choice questions, weighted equally."></textarea>
+                <button type="submit">Analyze with AI</button>
+            </form>
+        </div>
+
+        <div id="proposalArea" class="hidden">
+            <h2>AI Proposal:</h2>
+            
+            <div class="proposal-summary">
+                <p><strong>Contest Name:</strong> <span id="propContestName"></span></p>
+                <p><strong>Total Max Score:</strong> <span id="totalScore"></span></p>
+                <p><strong>Ranking Rule:</strong> <span id="rankingRule"></span></p>
+            </div>
+
+            <h3>--- Subject Breakdown ---</h3>
+            <table id="proposalTable">
+                <thead>
+                    <tr>
+                        <th>Subject/Paper</th>
+                        <th>Max Score</th>
+                        <th>Weight</th>
+                    </tr>
+                </thead>
+                <tbody id="proposalTableBody">
+                    </tbody>
+            </table>
+
+            <button id="confirmSetupBtn">Confirm & Generate Codes</button>
+        </div>
+
+        <div id="finalSetupArea" class="hidden">
+            <h2>Contest is Live!</h2>
+            <p><strong>Contest Name:</strong> <span id="contestName"></span></p>
+            <p class="big-code">Submission Code: <span id="submissionCode"></span></p>
+            <p>Share this code with participants to allow them to submit results.</p>
+            
+            <p style="margin-top: 20px;">
+                <strong>Host Audit Links:</strong> 
+                <a href="/rankings" style="margin-left: 10px;">View Rankings</a> |
+                <a href="/tally">View Raw Tally</a>
+            </p>
+
+            <p style="margin-top: 20px;">You can backup your contest data anytime:</p>
+            <a href="/download-db" class="button-link" style="display: block; margin-top: 10px; padding: 10px; background-color: #007bff; color: white; text-align: center; text-decoration: none; border-radius: 5px;">Download Contest Database (Backup)</a>
+
+        </div>
+        
+    </main>
+
+    <div style="text-align: center; margin-top: 30px; padding: 15px; background-color: #fdd; border: 1px solid #c00;">
+        <p style="color: #c00; font-weight: bold;">HOST DANGER ZONE</p>
+        <button id="resetSystemBtn" style="background-color: #c00; color: white; border: none; padding: 10px 20px; cursor: pointer;">RESET ALL CONTEST DATA (DANGER)</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 ContestRank Pro | <a href="/submit">Participant Portal</a></p>
+    </footer>
+
+    <script src="index.js"></script> 
+</body>
+</html>
+

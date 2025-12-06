@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tally View - Host Audit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📊 Host Audit Tally View</h1>
+    </header>
+
+    <main>
+        <div id="tally-input">
+            <h2>View Raw Submissions</h2>
+            <form id="tallyForm">
+                <label for="tallyCodeInput">Enter Contest Code to View Tally:</label>
+                <input type="text" id="tallyCodeInput" required>
+                <button type="submit">View Tally</button>
+            </form>
+        </div>
+
+        <div id="tally-output" class="hidden">
+            <h2 id="tallyContestName"></h2>
+            
+            <table id="tallyTable">
+                <thead>
+                    <tr>
+                        <th>School/Team Name</th>
+                        <th>Total Score</th>
+                        <th>Submission Time</th>
+                    </tr>
+                </thead>
+                <tbody id="tallyTableBody">
+                    </tbody>
+            </table>
+            <p id="noTallyResults" class="hidden">No submissions recorded yet for this contest.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ContestRank Pro | <a href="/">Host Portal</a></p>
+    </footer>
+
+    <script src="tally.js"></script>
+</body>
+</html>
+
