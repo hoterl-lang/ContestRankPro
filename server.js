@@ -342,22 +342,21 @@ app.post('/api/reset-system', (req, res) => {
         
         res.json({ success: true, message: messages.join(' ') });
 
-    } catch (error) {
-        console.error("System Reset Error:", error.message);
-        res.status(500).json({ success: false, message: `System Reset failed: ${error.message}` });
-    }
+} catch (error) {
+    console.error("System Reset Error:", error.message);
+    // Corrected template literal (using backticks ` and proper syntax)
+    res.status(500).json({ success: false, message: `System Reset failed: ${error.message}` });
+} // <--- Added the missing closing brace for the try block
 });
 
 
 // Function to start the server and initialize the DB
 async function startApp() {
     await dbManager.initializeDatabase();
-    
-   app.listen(PORT, () => { // <--- Must be the uppercase 'PORT'
-  // ...
-});
-{
-        console.log(`ContestRank Pro server running at http://localhost:${port}`);
+
+    // The app.listen call must contain all subsequent commands within its function block
+    app.listen(PORT, () => { // <--- Must use the uppercase 'PORT'
+        console.log(`ContestRank Pro server running at http://localhost:${PORT}`); // <--- Must use the uppercase 'PORT'
         console.log('Press Ctrl+C to stop the server.');
     });
 }
