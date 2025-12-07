@@ -353,7 +353,10 @@ app.post('/api/reset-system', (req, res) => {
 async function startApp() {
     await dbManager.initializeDatabase();
     
-    app.listen(port, () => {
+   app.listen(PORT, () => { // <--- Must be the uppercase 'PORT'
+  // ...
+});
+{
         console.log(`ContestRank Pro server running at http://localhost:${port}`);
         console.log('Press Ctrl+C to stop the server.');
     });
