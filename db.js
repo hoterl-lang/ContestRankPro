@@ -9,9 +9,9 @@ let db = null;
 
 async function initializeDatabase() {
     console.log('Initializing SQLite (sql.js) engine...');
-    
+
     const SQL = await initSqlJs();
-    
+
     // Check if the database file exists and load it
     if (fs.existsSync(file_path)) {
         try {
@@ -38,6 +38,15 @@ async function initializeDatabase() {
                 submission_code TEXT UNIQUE NOT NULL
             );
 
+            CREATE TABLE IF NOT EXISTS subjects (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                contest_id INTEGER NOT NULL,
+                name TEXT NOT NULL,
+                max_score INTEGER NOT NULL,
+                weight REAL DEFAULT 1.0,
+                FOREIGN KEY(contest_id) REFERENCES contests(id)
+            );
+
             CREATE TABLE IF NOT EXISTS results (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 contest_id INTEGER,
@@ -48,7 +57,7 @@ async function initializeDatabase() {
             );
         `);
         console.log('Database tables initialized.');
-        
+
         saveDatabase();
 
     } catch (error) {
