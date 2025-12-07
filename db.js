@@ -3,7 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 const initSqlJs = require('sql.js');
-const file_path = path.join(__dirname, 'contestrank.db');
+// CRITICAL FIX: Renaming the file to force a clean database initialization
+const file_path = path.join(__dirname, 'contestrank_kcse.db'); 
 
 let db = null;
 
@@ -17,14 +18,14 @@ async function initializeDatabase() {
         try {
             const fileBuffer = fs.readFileSync(file_path);
             db = new SQL.Database(fileBuffer);
-            console.log('Loaded database from file: contestrank.db');
+            console.log('Loaded database from file: contestrank_kcse.db');
         } catch (e) {
             console.error('Error loading database file. Creating new database.', e.message);
             db = new SQL.Database();
         }
     } else {
         db = new SQL.Database();
-        console.log('Created new in-memory database.');
+        console.log('Created new in-memory database: contestrank_kcse.db');
     }
 
     // Run table creation commands
@@ -38,6 +39,7 @@ async function initializeDatabase() {
                 submission_code TEXT UNIQUE NOT NULL
             );
 
+            -- REQUIRED TABLE for multi-subject configurations (KCSE, Custom JSON)
             CREATE TABLE IF NOT EXISTS subjects (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 contest_id INTEGER NOT NULL,
